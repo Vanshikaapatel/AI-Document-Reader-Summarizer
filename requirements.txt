@@ -1,0 +1,11 @@
+streamlit
+PyPDF2
+pdfplumber
+transformers
+torch
+gensim
+nltk
+pillow
+pdf2image
+pytesseract
+datetime

@@ -1,0 +1,11 @@
+# AI Document Reader & Summarizer
+
+This project reads PDF documents, extracts text, and generates summaries using NLP.
+
+## Features
+✔ Extract text from PDFs  
+✔ Clean & preprocess text  
+✔ Abstractive summarization (Transformers)  
+✔ Extractive summarization (TextRank via Gensim)
+
+## Install
