@@ -6,9 +6,29 @@ st.set_page_config(
     page_icon="📝"
 )
 
+# ---- HIDE STREAMLIT SIDEBAR & TOGGLE ICON ----
+st.markdown("""
+<style>
+/* Hide sidebar completely */
+section[data-testid="stSidebar"] {
+    display: none !important;
+}
+
+/* Hide sidebar toggle icon (keyboard_double_arrow_right) */
+button[kind="header"] {
+    display: none !important;
+}
+
+/* Extra safety: hide material icons text */
+.material-icons {
+    display: none !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 # ------------------- PREMIUM BLUE NAVBAR -------------------
-def navbar(active="home"):
+def navbar(active="Home"):
     st.markdown("""
     <style>
 
@@ -64,7 +84,7 @@ def navbar(active="home"):
     # -------- HOME ----------
     with col1:
         if st.button("🏠 Home"):
-            st.switch_page("app.py")
+            st.switch_page("App.py")
 
     # -------- LOGIN ----------
     with col2:
@@ -84,10 +104,10 @@ def navbar(active="home"):
     # -------- ADMIN ----------
     with col5:
         if st.button("👑 Admin"):
-            st.switch_page("pages/4_AdminPanel.py")
+            st.switch_page("pages/4_Admin.py")
 
 # CALL NAVBAR
-navbar("home")
+navbar("Home")
 
 # -------------------------
 # CUSTOM STYLING

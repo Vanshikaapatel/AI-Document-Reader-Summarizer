@@ -44,6 +44,9 @@ def adjust_summary_prompt(doc_type, text):
 
     if doc_type == "Medical Report":
         return "Summarize this medical report focusing on diagnosis, tests, and treatment:\n" + text
+    
+    if doc_type == "Cheat Sheet":
+        return "Summarize this medical report focusing on diagnosis, tests, and treatment:\n" + text
 
     return "Summarize this document:\n" + text
 

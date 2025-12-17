@@ -8,7 +8,7 @@ if "user" not in st.session_state:
 st.set_page_config(page_title="Login", layout="wide")
 
 # ------------------- NAVBAR -------------------
-def navbar(active="login"):
+def navbar(active="Login"):
     st.markdown("""
     <style>
 
@@ -64,7 +64,7 @@ def navbar(active="login"):
     # -------- HOME ----------
     with col1:
         if st.button("🏠 Home"):
-            st.switch_page("app.py")
+            st.switch_page("App.py")
 
     # -------- LOGIN ----------
     with col2:
@@ -84,10 +84,10 @@ def navbar(active="login"):
     # -------- ADMIN ----------
     with col5:
         if st.button("👑 Admin"):
-            st.switch_page("pages/4_AdminPanel.py")
+            st.switch_page("pages/4_Admin.py")
             
 # CALL NAVBAR
-navbar("login")
+navbar("Login")
             
 
 

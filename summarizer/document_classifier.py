@@ -20,6 +20,9 @@ def detect_document_type(text):
 
     # Medical Report
     medical_keywords = ["diagnosis", "prescription", "bp", "blood test", "treatment", "symptoms"]
+    
+    # Cheat Sheet
+    cheatsheet_keywords = ["formula", "syntax", "shortcut", "quick reference", "rules", "examples", "key points", "summary table", "one-liner", "tips", "tricks", "commands", "operators"]
 
     # Matching Logic
     if any(k in text_lower for k in research_keywords):
@@ -39,7 +42,8 @@ def detect_document_type(text):
 
     if any(k in text_lower for k in medical_keywords):
         return "Medical Report"
-
+    if any(k in text_lower for k in cheatsheet_keywords):
+        return "Cheat Sheet"
     return "General Document"
 
 
@@ -80,6 +84,11 @@ def adjust_summary_prompt(doc_type, text):
     if doc_type == "Medical Report":
         return (
             "Summarize this MEDICAL REPORT focusing on diagnosis, tests, and treatment.\n\n"
+            + text
+        )
+    if doc_type == "Cheat Sheet":
+        return (
+            "Summarize this CHEAT SHEET focusing on formulas, key points, and quick references.\n\n"
             + text
         )
 

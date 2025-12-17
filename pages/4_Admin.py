@@ -2,11 +2,11 @@ import streamlit as st
 import json
 import pandas as pd
 
-st.set_page_config(page_title="Admin Panel", layout="wide")
+st.set_page_config(page_title="Admin", layout="wide")
 
 import streamlit as st
 
-def navbar(active="admin"):
+def navbar(active="Admin"):
     st.markdown("""
     <style>
     .nav-container {
@@ -45,7 +45,7 @@ def navbar(active="admin"):
 
     with col1:
         if st.button("Home", key="home_btn"):
-            st.switch_page("app.py")
+            st.switch_page("App.py")
 
     with col2:
         if st.button("Login", key="login_btn"):
@@ -61,8 +61,8 @@ def navbar(active="admin"):
 
     with col5:
         if st.button("Admin", key="admin_btn"):
-            st.switch_page("pages/4_AdminPanel.py")
-            navbar("admin")
+            st.switch_page("pages/4_Admin.py")
+            navbar("Admin")
 
 
 # Check if logged in
@@ -71,7 +71,7 @@ if "user" not in st.session_state or st.session_state.user is None:
     st.stop()
 
 # Only admin allowed (define admin username)
-ADMIN_USERNAME = "admin"
+ADMIN_USERNAME = "Admin"
 
 if st.session_state.user != ADMIN_USERNAME:
     st.error("Access denied. You are not an admin.")

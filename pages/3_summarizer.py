@@ -15,7 +15,7 @@ st.write(f"👤 Logged in as: **{st.session_state.user}**")
 if st.button("🚪 Logout"):
     st.session_state.user = None
     st.success("Logged out successfully!")
-    st.switch_page("app.py")
+    st.switch_page("App.py")
 
 if "user" not in st.session_state:
     st.session_state.user = None
@@ -57,9 +57,39 @@ st.set_page_config(
     page_icon="📝"
 )
 
-import streamlit as st
+# ---- HIDE ONLY SIDEBAR TOGGLE ARROW (NOT SIDEBAR) ----
+st.markdown("""
+    <style>
 
-def navbar(active="summarizer"):
+    /* Hide ONLY the sidebar collapse/expand arrow */
+    button[data-testid="collapsedControl"] {
+        display: none !important;
+    }
+
+    </style>
+    """, unsafe_allow_html=True)
+
+
+
+# ---- HIDE STREAMLIT SIDEBAR TOGGLE ARROW ----
+st.markdown("""
+    <style>
+    /* Hide the sidebar toggle arrow (keyboard_double_arrow_right) */
+    button[kind="header"] {
+        display: none !important;
+    }
+
+    /* Extra safety for material icon text */
+    .material-icons {
+        display: none !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+
+# ------------------- NAVBAR -------------------
+
+def navbar(active="Summarizer"):
     st.markdown("""
     <style>
     .nav-container {
@@ -98,23 +128,23 @@ def navbar(active="summarizer"):
 
     with col1:
         if st.button("Home", key="home_btn"):
-            st.switch_page("app.py")
+            st.switch_page("App.py")
 
     with col2:
-        if st.button("Login", key="login_btn"):
+        if st.button("Login", key="Login_btn"):
             st.switch_page("pages/1_Login.py")
 
     with col3:
-        if st.button("Register", key="register_btn"):
+        if st.button("Register", key="Register_btn"):
             st.switch_page("pages/2_Register.py")
 
     with col4:
-        if st.button("Summarizer", key="summ_btn"):
+        if st.button("Summarizer", key="Summarizer_btn"):
             st.switch_page("pages/3_Summarizer.py")
 
     with col5:
         if st.button("Admin", key="admin_btn"):
-            st.switch_page("pages/4_AdminPanel.py")
+            st.switch_page("pages/4_Admin.py")
 navbar("summarizer")
 
 
@@ -234,7 +264,7 @@ else:
     st.markdown("""
         <style>
         .stApp { background-color: #f4f4f4 !important; color: black !important; }
-        .main-container { background: rgba(255,255,255,0.60) !important; color: black !important; }
+        .main-container { background: rgba(255,255,255,0.07) !important; color: black !important; }
         p, label, span, div, h1, h2, h3, h4 { color: black !important; }
         </style>
     """, unsafe_allow_html=True)
@@ -259,8 +289,8 @@ enable_ocr = st.sidebar.checkbox("Enable OCR for scanned PDFs")
 max_len = st.sidebar.slider("Summary Length (words)", 50, 500, 150, step=25)
 
 if st.session_state.user == "admin":
-    if st.sidebar.button("🔐 Admin Panel"):
-        st.switch_page("pages/4_AdminPanel.py")
+    if st.sidebar.button("🔐 Admin"):
+        st.switch_page("pages/4_Admin.py")
 
 
 

@@ -9,7 +9,7 @@ if "user" not in st.session_state:
 st.set_page_config(page_title="Register", layout="wide")
 
 # ------------------- NAVBAR -------------------
-def navbar(active="regiter"):
+def navbar(active="Register"):
     st.markdown("""
     <style>
 
@@ -65,7 +65,7 @@ def navbar(active="regiter"):
     # -------- HOME ----------
     with col1:
         if st.button("🏠 Home"):
-            st.switch_page("app.py")
+            st.switch_page("App.py")
 
     # -------- LOGIN ----------
     with col2:
@@ -85,10 +85,10 @@ def navbar(active="regiter"):
     # -------- ADMIN ----------
     with col5:
         if st.button("👑 Admin"):
-            st.switch_page("pages/4_AdminPanel.py")
+            st.switch_page("pages/4_Admim.py")
             
 # CALL NAVBAR
-navbar("register")
+navbar("Register")
 
 
 # ------------------ USER DB ------------------
