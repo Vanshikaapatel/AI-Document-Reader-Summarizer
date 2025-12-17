@@ -1,11 +1,41 @@
 # AI Document Reader & Summarizer
 
-This project reads PDF documents, extracts text, and generates summaries using NLP.
+Upload PDFs, extract text (OCR fallback), and generate summaries (abstractive/extractive).  
+Features: Streamlit UI, TTS, export DOCX/PDF/TXT, user accounts.
 
-## Features
-✔ Extract text from PDFs  
-✔ Clean & preprocess text  
-✔ Abstractive summarization (Transformers)  
-✔ Extractive summarization (TextRank via Gensim)
+📄 AI Document Reader & Auto-Summarizer
 
-## Install
+An AI-powered application that reads PDF documents, auto-detects the document type, and generates optimized, context-aware summaries. Built using Python, Streamlit, NLP, and LLMs, this tool makes document understanding fast, intelligent, and user-friendly.
+
+🚀 Features
+
+Auto-Detect Document Type
+Automatically classifies uploaded PDFs into:
+
+Research Paper
+Notes
+Assignment
+Legal Document
+Invoice
+Medical Report
+General Document
+
+AI-Optimized Summaries
+Generates smart summaries tailored specifically to the detected document type.
+
+PDF Text Extraction
+Extracts text from single or multi-page PDFs.
+
+Clean Streamlit UI
+Simple, modern interface for uploading documents and viewing summaries.
+
+Lightweight & Fast
+Works locally with minimal setup.
+
+## Run locally
+1. Install: `pip install -r requirements.txt`
+2. Run: `streamlit run app.py`
+
+## Notes
+- Add `users.json` (excluded from git) or create accounts using the Register page.
+- For OCR install: Tesseract and add to PATH.
